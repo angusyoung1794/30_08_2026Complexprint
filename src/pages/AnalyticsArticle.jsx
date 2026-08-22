@@ -110,6 +110,52 @@ const renderParagraph = (p, idx) => {
       </ul>
     );
   }
+  if (p.type === "subheading") {
+    return (
+      <h3
+        key={idx}
+        className="text-xl md:text-2xl font-bold text-slate-900 mt-10 mb-4 leading-snug"
+      >
+        {renderInline(p.text)}
+      </h3>
+    );
+  }
+  if (p.type === "table") {
+    return (
+      <div
+        key={idx}
+        className="my-8 overflow-x-auto rounded-2xl border border-slate-200 shadow-sm"
+      >
+        <table className="w-full text-left border-collapse text-[14.5px] md:text-[15px]">
+          {p.headers && (
+            <thead>
+              <tr className="bg-slate-900 text-white">
+                {p.headers.map((h, i) => (
+                  <th key={i} className="px-4 py-3 font-semibold whitespace-nowrap first:whitespace-normal">
+                    {renderInline(h)}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+          )}
+          <tbody>
+            {p.rows.map((row, r) => (
+              <tr key={r} className={r % 2 ? "bg-slate-50/70" : "bg-white"}>
+                {row.map((cell, c) => (
+                  <td
+                    key={c}
+                    className="px-4 py-3 text-slate-700 border-t border-slate-100 align-top"
+                  >
+                    {renderInline(cell)}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    );
+  }
   if (p.type === "image") {
     return (
       <figure key={idx} className="my-8">

@@ -58,6 +58,18 @@ export const ROUTES = [
   // ─── Аналитика ────────────────────────────────────────────────────────────
   { path: "/analytics", priority: 0.85, changefreq: "weekly" },
   {
+    path: "/analytics/skolko-stoit-soderzhat-park-printerov-tco",
+    priority: 0.8,
+    changefreq: "monthly",
+    images: [
+      {
+        loc: "https://complexprint.ru/images/analytics/tco-cover-infographic.png",
+        title:
+          "Сколько стоит содержать парк принтеров в офисе: полный расчёт TCO",
+      },
+    ],
+  },
+  {
     path: "/analytics/rezinovye-ubijcy-printery-tajvan",
     priority: 0.75,
     changefreq: "monthly",

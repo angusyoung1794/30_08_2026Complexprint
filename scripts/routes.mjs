@@ -58,6 +58,18 @@ export const ROUTES = [
   // ─── Аналитика ────────────────────────────────────────────────────────────
   { path: "/analytics", priority: 0.85, changefreq: "weekly" },
   {
+    path: "/analytics/vyezdnoe-obsluzhivanie-printerov-bez-prostoev",
+    priority: 0.8,
+    changefreq: "monthly",
+    images: [
+      {
+        loc: "https://complexprint.ru/images/analytics/vyezd-remont-ofis.jpg",
+        title:
+          "Выездное обслуживание принтеров: как организовать без простоев в работе офиса",
+      },
+    ],
+  },
+  {
     path: "/analytics/skolko-stoit-soderzhat-park-printerov-tco",
     priority: 0.8,
     changefreq: "monthly",

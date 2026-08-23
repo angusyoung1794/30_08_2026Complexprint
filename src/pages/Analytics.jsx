@@ -61,17 +61,25 @@ const Analytics = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50/40">
       <Helmet>
+        <html lang="ru" />
         <title>Наша аналитика — статьи о ремонте и рынке принтеров | Комплекс Принт</title>
         <meta
           name="description"
           content="Аналитические статьи от инженеров сервисного центра Комплекс Принт: рынок принтеров России, разбор технологий, экономика печати, реальные кейсы из ремонтной мастерской."
         />
         <link rel="canonical" href={`${SITE_URL}/analytics`} />
-        <meta name="robots" content="index, follow" />
+        <meta name="robots" content="index, follow, max-image-preview:large" />
+        <meta property="og:site_name" content="Комплекс Принт" />
+        <meta property="og:locale" content="ru_RU" />
         <meta property="og:title" content="Наша аналитика — Комплекс Принт" />
         <meta property="og:description" content="Аналитические статьи от инженеров сервисного центра." />
         <meta property="og:url" content={`${SITE_URL}/analytics`} />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content={`${SITE_URL}${articles[0]?.cover || "/og-image.jpg"}`} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Наша аналитика — Комплекс Принт" />
+        <meta name="twitter:description" content="Аналитические статьи от инженеров сервисного центра." />
+        <meta name="twitter:image" content={`${SITE_URL}${articles[0]?.cover || "/og-image.jpg"}`} />
         <script type="application/ld+json">{JSON.stringify(blogSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>

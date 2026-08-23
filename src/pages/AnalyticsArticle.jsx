@@ -231,27 +231,57 @@ const AnalyticsArticle = () => {
     ],
   };
 
+  // JSON-LD: FAQPage — для расширенных сниппетов в поиске (если у статьи есть FAQ)
+  const faqSchema =
+    Array.isArray(article.faq) && article.faq.length
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "@id": `${url}#faq`,
+          mainEntity: article.faq.map((item) => ({
+            "@type": "Question",
+            name: item.q,
+            acceptedAnswer: { "@type": "Answer", text: item.a },
+          })),
+        }
+      : null;
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50/40">
       <Helmet>
+        <html lang="ru" />
         <title>{`${article.title} | Комплекс Принт — Аналитика`}</title>
         <meta name="description" content={article.description} />
         <link rel="canonical" href={url} />
-        <meta name="robots" content="index, follow" />
+        <meta name="robots" content="index, follow, max-image-preview:large" />
         <meta name="keywords" content={article.tags.join(", ")} />
         <meta name="author" content="Комплекс Принт" />
         <meta property="article:published_time" content={article.date} />
+        <meta property="article:modified_time" content={article.date} />
 
         <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="Комплекс Принт" />
+        <meta property="og:locale" content="ru_RU" />
         <meta property="og:title" content={article.title} />
         <meta property="og:description" content={article.description} />
         <meta property="og:image" content={`${SITE_URL}${article.cover}`} />
+        <meta property="og:image:alt" content={article.coverAlt} />
         <meta property="og:url" content={url} />
         <meta property="article:author" content="Комплекс Принт" />
+        <meta property="article:section" content="Аналитика" />
         <meta property="article:tag" content={article.tags.join(", ")} />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={article.title} />
+        <meta name="twitter:description" content={article.description} />
+        <meta name="twitter:image" content={`${SITE_URL}${article.cover}`} />
+        <meta name="twitter:image:alt" content={article.coverAlt} />
 
         <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
+        {faqSchema && (
+          <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+        )}
       </Helmet>
 
       <Header />

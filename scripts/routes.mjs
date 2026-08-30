@@ -82,6 +82,18 @@ export const ROUTES = [
     ],
   },
   {
+    path: "/analytics/moskovskiy-ofis-pereplachivaet-za-pechat-7-oshibok",
+    priority: 0.8,
+    changefreq: "monthly",
+    images: [
+      {
+        loc: "https://complexprint.ru/images/analytics/msk-cover.jpg",
+        title:
+          "Почему ваш московский офис переплачивает за печать: 7 ошибок",
+      },
+    ],
+  },
+  {
     path: "/analytics/rezinovye-ubijcy-printery-tajvan",
     priority: 0.75,
     changefreq: "monthly",

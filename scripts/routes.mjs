@@ -58,6 +58,18 @@ export const ROUTES = [
   // ─── Аналитика ────────────────────────────────────────────────────────────
   { path: "/analytics", priority: 0.85, changefreq: "weekly" },
   {
+    path: "/analytics/kitajskij-printer-sedaet-byudzhet-pantum-skrytye-rashody",
+    priority: 0.8,
+    changefreq: "monthly",
+    images: [
+      {
+        loc: "https://complexprint.ru/images/analytics/pantum-cover.jpg",
+        title:
+          "Как китайский принтер съедает бюджет офиса: скрытые расходы Pantum",
+      },
+    ],
+  },
+  {
     path: "/analytics/vyezdnoe-obsluzhivanie-printerov-bez-prostoev",
     priority: 0.8,
     changefreq: "monthly",

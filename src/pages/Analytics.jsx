@@ -160,16 +160,18 @@ const Analytics = () => {
                       <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                     </Link>
 
-                    <a
-                      href={a.dzenUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      title="Оригинал на Дзене"
-                      className="inline-flex items-center gap-1 text-slate-400 hover:text-slate-600 text-[13px] transition-colors"
-                    >
-                      Дзен
-                      <ExternalLink className="w-3.5 h-3.5" />
-                    </a>
+                    {a.dzenUrl && (
+                      <a
+                        href={a.dzenUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="Оригинал на Дзене"
+                        className="inline-flex items-center gap-1 text-slate-400 hover:text-slate-600 text-[13px] transition-colors"
+                      >
+                        Дзен
+                        <ExternalLink className="w-3.5 h-3.5" />
+                      </a>
+                    )}
                   </div>
                 </CardContent>
               </Card>

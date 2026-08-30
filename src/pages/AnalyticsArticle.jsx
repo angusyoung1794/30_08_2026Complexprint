@@ -359,25 +359,27 @@ const AnalyticsArticle = () => {
             </div>
 
             {/* CTA — читать оригинал на Дзене + оставить заявку */}
-            <div className="mt-10 grid md:grid-cols-2 gap-4">
-              <a
-                href={article.dzenUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-4 p-5 rounded-2xl border border-slate-200 bg-white hover:border-blue-200 hover:shadow-md transition-all"
-              >
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-100 to-yellow-100 flex items-center justify-center flex-shrink-0">
-                  <ExternalLink className="w-5 h-5 text-orange-600" />
-                </div>
-                <div className="flex-1">
-                  <div className="text-[13px] font-semibold text-slate-500 uppercase tracking-wider mb-0.5">
-                    Оригинал
+            <div className={article.dzenUrl ? "mt-10 grid md:grid-cols-2 gap-4" : "mt-10"}>
+              {article.dzenUrl && (
+                <a
+                  href={article.dzenUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-4 p-5 rounded-2xl border border-slate-200 bg-white hover:border-blue-200 hover:shadow-md transition-all"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-100 to-yellow-100 flex items-center justify-center flex-shrink-0">
+                    <ExternalLink className="w-5 h-5 text-orange-600" />
                   </div>
-                  <div className="text-slate-900 font-semibold group-hover:text-blue-700 transition-colors">
-                    Прочитать эту статью на Дзене
+                  <div className="flex-1">
+                    <div className="text-[13px] font-semibold text-slate-500 uppercase tracking-wider mb-0.5">
+                      Оригинал
+                    </div>
+                    <div className="text-slate-900 font-semibold group-hover:text-blue-700 transition-colors">
+                      Прочитать эту статью на Дзене
+                    </div>
                   </div>
-                </div>
-              </a>
+                </a>
+              )}
 
               <button
                 onClick={openRepairModal}
